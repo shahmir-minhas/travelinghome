@@ -1,0 +1,104 @@
+CREATE TABLE IF NOT EXISTS `users`
+(
+    `UID` bigint NOT NULL AUTO_INCREMENT,
+    `SystemDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `FullName` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+    `ContactNumber` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+    `Archive` smallint NOT NULL DEFAULT '0',
+    PRIMARY KEY(`UID`)
+) ENGINE=MyISAM AUTO_INCREMENT=1;
+
+ALTER TABLE `users` ADD `Email` TEXT NULL AFTER `ContactNumber`;
+
+ALTER TABLE `users` CHANGE `FullName` `Name` TEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+ALTER TABLE `users` ADD `AccountType` TEXT NULL DEFAULT NULL AFTER `Email`;
+
+CREATE TABLE IF NOT EXISTS `ads`
+(
+    `UID` bigint NOT NULL AUTO_INCREMENT,
+    `SystemDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `Title` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+    `Archive` smallint NOT NULL DEFAULT '0',
+    PRIMARY KEY(`UID`)
+) ENGINE=MyISAM AUTO_INCREMENT=1;
+
+ALTER TABLE `ads` ADD `Bath` INT(20) NULL DEFAULT NULL AFTER `Title`, ADD `Bed` INT(20) NULL DEFAULT NULL AFTER `Bath`, ADD `Status` INT(10) NULL DEFAULT NULL AFTER `Bed`;
+
+ALTER TABLE `users` ADD `Password` VARCHAR(50) NULL DEFAULT NULL AFTER `Email`;
+ALTER TABLE `users` ADD `Address` TEXT NULL DEFAULT NULL AFTER `ContactNumber`;
+ALTER TABLE `users` ADD `RoomsBooked` INT(10) NULL DEFAULT NULL AFTER `AccountType`, ADD `Revenue` INT(20) NOT NULL AFTER `RoomsBooked`;
+/////////////////////////////////////// new db/////////////////
+
+
+ALTER TABLE `ads` ADD `UserName` TEXT NULL DEFAULT NULL AFTER `UserId`;
+ALTER TABLE `ads` ADD `Rent`;TEXT NULL DEFAULT NULL AFTER `UserName` 
+ALTER TABLE `ads` ADD `AreaSq` INT NULL DEFAULT NULL AFTER `Rent`;
+ALTER TABLE `ads` ADD `AddDate` TEXT NULL DEFAULT NULL AFTER `AreaSq`;
+ALTER TABLE `ads` ADD `Address` TEXT NULL DEFAULT NULL AFTER `AddDate`;
+ALTER TABLE `ads` ADD `Category` TEXT NULL DEFAULT NULL AFTER `Address`;
+ALTER TABLE `ads` ADD `BookUserId` INT NULL DEFAULT NULL AFTER `Category`;
+ALTER TABLE `ads` ADD `Review` TEXT NULL DEFAULT NULL AFTER `Category`;
+ALTER TABLE `ads` ADD `AdsImage` TEXT NULL DEFAULT NULL AFTER `UserName`;
+ALTER TABLE `ads` ADD `UserId` TEXT NULL DEFAULT NULL AFTER `SystemDate`;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////////////////////////////
+CREATE TABLE IF NOT EXISTS `users`
+(
+    `UID` bigint NOT NULL AUTO_INCREMENT,
+    `SystemDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `FullName` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+    `ContactNumber` varchar(200) CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+    `Archive` smallint NOT NULL DEFAULT '0',
+    PRIMARY KEY(`UID`)
+) ENGINE=MyISAM AUTO_INCREMENT=1;
+
+ALTER TABLE `users` ADD `Email` TEXT NULL AFTER `ContactNumber`;
+
+ALTER TABLE `users` CHANGE `FullName` `Name` TEXT CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+ALTER TABLE `users` ADD `AccountType` TEXT NULL DEFAULT NULL AFTER `Email`;
+
+CREATE TABLE IF NOT EXISTS `ads`
+(
+    `UID` bigint NOT NULL AUTO_INCREMENT,
+    `SystemDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    `Title` text CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL,
+    `Archive` smallint NOT NULL DEFAULT '0',
+    PRIMARY KEY(`UID`)
+) ENGINE=MyISAM AUTO_INCREMENT=1;
+
+ALTER TABLE `ads` ADD `Bath` INT(20) NULL DEFAULT NULL AFTER `Title`, ADD `Bed` INT(20) NULL DEFAULT NULL AFTER `Bath`, ADD `Status` INT(10) NULL DEFAULT NULL AFTER `Bed`;
+
+ALTER TABLE `users` ADD `Password` VARCHAR(50) NULL DEFAULT NULL AFTER `Email`;
+ALTER TABLE `users` ADD `Address` TEXT NULL DEFAULT NULL AFTER `ContactNumber`;
+ALTER TABLE `users` ADD `RoomsBooked` INT(10) NULL DEFAULT NULL AFTER `AccountType`, ADD `Revenue` INT(20) NOT NULL AFTER `RoomsBooked`;
+/////////////////////////////////////// new db/////////////////
+
+
+ALTER TABLE `ads` ADD `UserName` TEXT NULL DEFAULT NULL AFTER `UserId`;
+ALTER TABLE `ads` ADD `Rent`;TEXT NULL DEFAULT NULL AFTER `UserName`
+ALTER TABLE `ads` ADD `AreaSq` INT NULL DEFAULT NULL AFTER `Rent`;
+ALTER TABLE `ads` ADD `AddDate` TEXT NULL DEFAULT NULL AFTER `AreaSq`;
+ALTER TABLE `ads` ADD `Address` TEXT NULL DEFAULT NULL AFTER `AddDate`;
+ALTER TABLE `ads` ADD `Category` TEXT NULL DEFAULT NULL AFTER `Address`;
+ALTER TABLE `ads` ADD `BookUserId` INT NULL DEFAULT NULL AFTER `Category`;
+ALTER TABLE `ads` ADD `Review` TEXT NULL DEFAULT NULL AFTER `Category`;
+ALTER TABLE `ads` ADD `AdsImage` TEXT NULL DEFAULT NULL AFTER `UserName`;
+ALTER TABLE `ads` ADD `UserId` TEXT NULL DEFAULT NULL AFTER `SystemDate`;
